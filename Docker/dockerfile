@@ -1,0 +1,3 @@
+FROM ubuntu:18.04
+
+COPY /home/Admin/project/SFIA1/Project-SFIA-1/app.py
