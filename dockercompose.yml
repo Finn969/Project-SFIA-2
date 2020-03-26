@@ -1,0 +1,35 @@
+version "3"
+
+services:
+
+    service_1:
+        image: service1:latest
+        ports: 
+            - "5000:5000"
+        networks:
+            - servicenetwork
+
+    service_2:
+        image: service2:latest
+        ports: 
+            - "5001:5001"
+        networks:
+            - servicenetwork
+
+    service_3:
+        image: service3:latest
+        ports: 
+            - "5002:5002"
+        networks:
+            - servicenetwork
+
+    service_4:
+        image: service4:latest
+        ports: 
+            - "5003:5003"
+        networks:
+            - servicenetwork
+
+networks:
+    servicenetwork:
+        driver: bridge

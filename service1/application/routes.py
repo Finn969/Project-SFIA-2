@@ -3,11 +3,11 @@ from flask import render_template, request
 import requests
 import random
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['POST','GET'])
 def home():
     return render_template('home.html')
 
-@app.route('/horoscope', methods=['GET'])
+@app.route('/horoscope', methods=['POST','GET'])
 def horoscope():
     response = requests.get('http://service_4:5003/')
     print(response)
