@@ -5,7 +5,11 @@ import random
 
 @app.route('/', methods=['POST','GET'])
 def home():
-    return render_template('home.html')
+    if request.method == 'POST':
+        details = request.form
+        requests.put('http://service_2:5001', data = [details['dob'],details['gender']])
+        
+   return render_template('home.html')
 
 @app.route('/horoscope', methods=['POST','GET'])
 def horoscope():

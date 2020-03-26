@@ -1,18 +1,18 @@
-version "3.7"
+version: "3.7"
 
 services:
 
     service_1:
         image: service1:latest
+        build: ./service1
         ports: 
             - "5000:5000"
-        environment:
-            #MYSQL STUFF
         networks:
             - servicenetwork
 
     service_2:
         image: service2:latest
+        build: ./service2
         ports: 
             - "5001:5001"
         networks:
@@ -20,6 +20,7 @@ services:
 
     service_3:
         image: service3:latest
+        build: ./service3
         ports: 
             - "5002:5002"
         networks:
@@ -27,6 +28,7 @@ services:
 
     service_4:
         image: service4:latest
+        build: ./service4
         ports: 
             - "5003:5003"
         networks:
