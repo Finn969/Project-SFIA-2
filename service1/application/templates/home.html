@@ -3,6 +3,7 @@
 {{super()}}
 
 {% endblock %}
+{% block body %}
 <h1>Daily Horoscope Generator</h1>
 <form method="POST" action='/horoscope'>
     <h2>Enter your date of birth</h2>
@@ -13,3 +14,4 @@
     <label for="female">Female</label><br>
     <input type= "submit">
 </form>
+{% endblock %}
