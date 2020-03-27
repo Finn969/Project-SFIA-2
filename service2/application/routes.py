@@ -7,9 +7,10 @@ import requests
 @app.route('/', methods=['GET','POST'])
 def astroinfo():
     starsign = ''
-    birthday = requests. 
-
+    birthday = requests.get('http://localhost:5000/')
+    print (birthday)
     # code to determine starsign
     # test output
     starsign = 'Libra'
+    print (starsign)
     return starsign
