@@ -33,5 +33,3 @@ def starsign(d):
         zodiac = "Pisces"
     
     return zodiac
-
-print (starsign("1996-9-2"))

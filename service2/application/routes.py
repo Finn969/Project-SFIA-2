@@ -1,4 +1,5 @@
-from application import app, starsign
+from application import app
+from .starsign import starsign
 from flask import render_template, request, redirect, url_for
 import requests
 
@@ -9,8 +10,7 @@ def astroinfo():
     
     birthday = request.args.get('DOB')
     print (birthday)
-    # code to determine starsign
-    # test output
-    zodiac = starsign.starsign(birthday)
+
+    zodiac = starsign(birthday)
     print (zodiac)
     return zodiac
