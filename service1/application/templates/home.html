@@ -5,13 +5,16 @@
 {% endblock %}
 {% block body %}
 <h1>Daily Horoscope Generator</h1>
-<form method="POST" action='/horoscope'>
+<form method="POST" action=''>
     <h2>Enter your date of birth</h2>
     <br><input type= "date" name="dob"/><br>
-    <input type="radio" id="male" name="gender" value="male">
-    <label for="male">Male</label>
-    <input type="radio" id="female" name="gender" value="female">
-    <label for="female">Female</label><br>
+
     <input type= "submit">
 </form>
+<br>
+<h2>Your Horoscope</h2>
+
+<p>
+    {{ sentence }}
+</p>
 {% endblock %}

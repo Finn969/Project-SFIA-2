@@ -5,31 +5,31 @@ services:
     service_1:
         build: ./service1
         ports: 
-            - "5000:5000"
-#        networks:
- #           - servicenetwork
+            - "80:5000"
+        networks:
+            - servicenetwork
 
     service_2:
         build: ./service2
         ports: 
             - "5001:5001"
-#        networks:
-#            - servicenetwork
+        networks:
+            - servicenetwork
 
     service_3:
         build: ./service3
         ports: 
             - "5002:5002"
-#        networks:
-#            - servicenetwork
+        networks:
+            - servicenetwork
 
     service_4:
         build: ./service4
         ports: 
             - "5003:5003"
-#        networks:
-#            - servicenetwork
+        networks:
+            - servicenetwork
 
-#networks:
-#    servicenetwork:
-#        driver: bridge
+networks:
+    servicenetwork:
+        driver: bridge

@@ -1,4 +1,4 @@
-from application import app
+from application import app, starsign
 from flask import render_template, request, redirect, url_for
 import requests
 
@@ -6,11 +6,11 @@ import requests
 
 @app.route('/', methods=['GET','POST'])
 def astroinfo():
-    starsign = ''
-    birthday = requests.get('http://localhost:5000/')
+    
+    birthday = request.args.get('DOB')
     print (birthday)
     # code to determine starsign
     # test output
-    starsign = 'Libra'
-    print (starsign)
-    return starsign
+    zodiac = starsign.starsign(birthday)
+    print (zodiac)
+    return zodiac
