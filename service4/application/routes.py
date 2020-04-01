@@ -2,7 +2,6 @@ from application import app
 import requests
 import random
 
-# this service will process the outputs from services 2 and 3.
 
 @app.route('/',methods=['GET','POST'])
 def output():
