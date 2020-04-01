@@ -1,12 +1,16 @@
 from application import app
 import requests
+import random
 
 # this service will process the outputs from services 2 and 3.
 
-@app.route('/',methods=['GET'])
+@app.route('/',methods=['GET','POST'])
 def output():
-    starsign = requests.get('http://localhost:5001/')
-    fortune = requests.get('http://localhost:5002/')
-    print (starsign, fortune)
-    output = "Your star sign is: "+ starsign.text +'/n'+fortune.text
-    return output
+    coinflip = random.random()
+
+    if coinflip > 0.5:
+        fate = 'good' 
+    else:
+        fate = 'bad'
+    
+    return fate
