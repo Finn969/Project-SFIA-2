@@ -3,28 +3,38 @@ version: "3.7"
 services:
 
     service_1:
-        build: ./service1
+        #build: ./service1
+        # use images instead
+        image:
+            finn969/sfia-2:service_1
         ports: 
             - "80:5000"
         networks:
             - servicenetwork
 
     service_2:
-        build: ./service2
+        #build: ./service2
+        image:
+            finn969/sfia-2:service_2
         ports: 
             - "5001:5001"
         networks:
             - servicenetwork
 
     service_3:
-        build: ./service3
+        #build: ./service3
+        image:
+            finn969/sfia-2:service_3
         ports: 
             - "5002:5002"
         networks:
             - servicenetwork
 
     service_4:
-        build: ./service4
+        #build: ./service4
+        
+        image:
+            finn969/sfia-2:service_4
         ports: 
             - "5003:5003"
         networks:
@@ -32,4 +42,4 @@ services:
 
 networks:
     servicenetwork:
-        driver: bridge
+        driver: overlay
