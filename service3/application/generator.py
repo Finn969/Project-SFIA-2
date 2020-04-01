@@ -89,7 +89,7 @@ def feeling_statement_s(mood, dirty):
     adjectives = wordlist.wordlist("_feeling_adjs", dirty, prefix=mood)
     degrees = wordlist.wordlist("neutral_degrees", dirty) + wordlist.wordlist("_degrees", dirty, prefix=mood)
 
-    i = random.randint(0,len(adjectives))
+    i = random.randint(0,len(adjectives)-1)
     adj = adjectives[i]
 
     adj = common.ing_to_ed(adj)
@@ -233,10 +233,10 @@ def emotive_event(mood, dirty):
         return "%s of %s" % (time_period, (noun))
 
 
-def generate(dirty=False):
+def generate(mood, dirty=False):
     """Generate a three to four sentence horoscope."""
     # Pick a mood (usually positive)
-    mood = "good" if random.random() <= 0.8 else "bad"
+    #mood = "good" if random.random() <= 0.8 else "bad"
 
     c = random.randint(1,2)
     discussion_s = relationship_s if c == 1 else encounter_s
@@ -260,6 +260,3 @@ def generate(dirty=False):
         final_text += " " + date_prediction_s(mood, dirty)
 
     return final_text
-
-
-print (generate())

@@ -7,6 +7,7 @@ import requests
 
 @app.route('/', methods=['GET','POST'])
 def prediction():
-    horoscope = generator.generate()
+    mood = requests.get('http://service_4:5003')
+    horoscope = generator.generate(mood)
     print (horoscope)
     return horoscope
