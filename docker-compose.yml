@@ -4,13 +4,15 @@ services:
 
     service_1:
         #build: ./service1
-        # use images instead
+        # put environment variables for the mysql server here
         image:
             finn969/sfia-2:service_1
         ports: 
             - "80:5000"
         networks:
             - servicenetwork
+        deploy:
+            replicas: 3
 
     service_2:
         #build: ./service2
@@ -20,6 +22,8 @@ services:
             - "5001:5001"
         networks:
             - servicenetwork
+        deploy:
+            replicas: 3
 
     service_3:
         #build: ./service3
@@ -29,6 +33,8 @@ services:
             - "5002:5002"
         networks:
             - servicenetwork
+        deploy:
+            replicas: 3
 
     service_4:
         #build: ./service4
@@ -39,6 +45,24 @@ services:
             - "5003:5003"
         networks:
             - servicenetwork
+        deploy:
+            replicas: 3
+
+    service_nginx:
+        image: #image here
+        ports: :
+            - "80:80"
+        networks:
+            -servicenetwork
+        depends_on: 
+            -service_1
+            -service_2
+            -service_3
+            -service_4
+        deploy:
+            replicas: 3
+            
+
 
 networks:
     servicenetwork:
