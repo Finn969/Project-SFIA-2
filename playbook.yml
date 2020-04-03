@@ -1,0 +1,7 @@
+---
+- hosts: 35.234.137.163
+
+  become: true
+  tasks:
+  - name: Install Docker
+    apt: name=docker.io update_cache=yes state=present
