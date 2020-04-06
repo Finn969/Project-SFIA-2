@@ -1,0 +1,17 @@
+FROM ubuntu:latest
+
+RUN mkdir /opt/SFIA2/
+
+COPY . /opt/SFIA2/
+
+WORKDIR /opt/SFIA2/
+
+RUN apt update -y
+RUN apt install python3 -y
+RUN apt install python3-pip -y
+RUN apt install python3-venv -y
+
+RUN apt-get install libmysqlclient-dev -y
+RUN pip3 install -r requirements.txt
+
+ENTRYPOINT ["python3", "app.py"]

@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+        stage('Development Environment') {
+            steps {
+                sh 'docker stack deploy --compose-file docker-compose.yml sfia2'
+                sh 'echo "Successful build!"'
+            }
+        }
+    }
+}
