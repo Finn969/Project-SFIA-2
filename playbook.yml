@@ -1,7 +1,18 @@
 ---
-- hosts: 35.234.137.163
-
+- name: Install Docker
   become: true
-  tasks:
-  - name: Install Docker
-    apt: name=docker.io update_cache=yes state=present
+  roles:
+    - docker-installation
+
+- name: Initialise Docker Swarm
+  hosts: swarm-manager
+  become: true
+  roles:
+    - docker-swarm-init
+
+- name: add workers
+  hosts: swarm-workers
+  become: true
+  roles:
+    - docker-swarm-add-workers
+  
