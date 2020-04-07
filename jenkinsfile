@@ -1,6 +1,37 @@
 pipeline {
     agent any
     stages {
+        stage('Test Environment') {
+            steps {
+                sh 'echo "dev-test local install"'
+                sh 'sudo apt update -y'
+                sh 'sudo apt-get remove docker docker-engine docker.io -y'
+                sh 'sudo apt install docker.io -y'
+                sh 'sudo systemctl start docker'
+                sh 'sudo systemctl enable docker'
+                sh 'sudo systemctl status docker'
+                sh 'sudo usermod -aG docker jenkins'
+            }
+        }
+        stage('Testing Installation') {
+            steps {
+                sh 'echo "install testing dependencies"'
+                sh 'sudo apt install python3-venv -y'
+                sh 'python3 -m venv venv'
+                
+                sh 'pip3 install pytest'
+                sh 'pip3 install coverage'
+                sh 'pip3 install -r /var/lib/jenkins/workspace/sfia_project_2/requirements.txt'
+                sh 'pip3 install docker-compose'
+                sh 'docker stack deploy --compose-file docker-testing-compose.yml sfia2test'
+            }
+        }
+       
+        stage('Testing') {
+            steps {
+                sh 'echo "tests go here"'
+            }
+        }
         stage('Development Environment') {
             steps {
                 sh 'docker stack deploy --compose-file docker-compose.yml sfia2'
