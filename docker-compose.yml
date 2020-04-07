@@ -3,7 +3,7 @@ version: "3.7"
 services:
 
     service_1:
-        #build: ./service1
+        
         # put environment variables for the mysql server here
         image:
             finn969/sfia-2:service_1
@@ -15,7 +15,7 @@ services:
             replicas: 3
 
     service_2:
-        #build: ./service2
+        
         image:
             finn969/sfia-2:service_2
         ports: 
@@ -26,7 +26,7 @@ services:
             replicas: 3
 
     service_3:
-        #build: ./service3
+        
         image:
             finn969/sfia-2:service_3
         ports: 
@@ -37,7 +37,7 @@ services:
             replicas: 3
 
     service_4:
-        #build: ./service4
+        
         
         image:
             finn969/sfia-2:service_4
@@ -60,7 +60,7 @@ services:
             -service_3
             -service_4
         deploy:
-            replicas: 3
+            replicas: 1
             
 
 
