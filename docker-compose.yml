@@ -1,5 +1,9 @@
 version: "3.7"
 
+networks:
+    servicenetwork:
+        driver: overlay
+
 services:
 
     service_1:
@@ -64,6 +68,4 @@ services:
             
 
 
-networks:
-    servicenetwork:
-        driver: overlay
+
