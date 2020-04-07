@@ -49,7 +49,7 @@ services:
             replicas: 3
 
     service_nginx:
-        image: #image here
+        image: nginx:latest
         ports: :
             - "80:80"
         networks:
