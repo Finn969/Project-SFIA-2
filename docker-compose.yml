@@ -50,15 +50,15 @@ services:
 
     service_nginx:
         image: nginx:latest
-        ports: :
+        ports:
             - "80:80"
         networks:
-            -servicenetwork
+            - servicenetwork
         depends_on: 
-            -service_1
-            -service_2
-            -service_3
-            -service_4
+            - service_1
+            - service_2
+            - service_3
+            - service_4
         deploy:
             replicas: 1
             

@@ -34,7 +34,10 @@ pipeline {
         }
         stage('Development Environment') {
             steps {
-                sh 'docker stack deploy --compose-file docker-compose.yml sfia2'
+                sh 'chmod +x ./script/*'
+                sh './script/before_install.sh'
+                sh 'sudo systemctl daemon-reload'
+                sh 'ansible-playbook playbook.yml'
                 sh 'echo "Successful build!"'
             }
         }
