@@ -7,7 +7,7 @@ services:
         image:
             finn969/sfia-2:service_1
         ports: 
-            - "80:5000"
+            - "5000:5000"
         networks:
             - testnetwork
 
