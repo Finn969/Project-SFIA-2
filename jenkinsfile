@@ -21,6 +21,12 @@ pipeline {
                     sh 'echo "Deployment complete!"'
                 }
             }
-
+            stage('Testing'){
+                steps{
+                    sh './script/tester.sh'
+                    sh 'echo "Testing Successful!"'
+                
+            }
+        }
     }
 }
