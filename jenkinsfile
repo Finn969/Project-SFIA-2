@@ -24,7 +24,7 @@ pipeline {
             stage('Testing'){
                 steps{
                     sh 'sudo chmod -R a+rw ./tests/'
-                    sh './script/tests.sh'
+                    sh 'sudo ./script/tests.sh'
                     sh 'echo "Testing Successful!"'
                 
             }
