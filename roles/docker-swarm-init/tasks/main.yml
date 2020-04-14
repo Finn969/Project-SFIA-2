@@ -29,7 +29,8 @@
   add_host:
     name: "token"
     value: "{{ worker_token.stdout }}"
-  
+
+
 - name: Get manager hostname
     add_host:
       name: "manager_hostname"
