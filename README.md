@@ -43,19 +43,9 @@ The "Problem log" and "Abandoned" columns were present from the start, but unfil
 
 Likelihood and Impact are rated on a scale from 1 to 5. The Matrix in the top right corner shows how the likelihood and impact scores interact; multiplied scores are addressed in order corresponding to red, green and yellow on the matrix.
 
-## Entity Relationship Diagram
+### Wireframe
 
-My initial plan was built to be rather simple, conatining two main tables to contain battles and generals, with a minor third table which establishes relationships between them, given that pure many-to-many relationships are difficult to implement.
-
-### Initial ERD
-![Initial ERD](https://github.com/Finn969/Project-SFIA-1/blob/master/ERD.png)
-
-I was able to fully complete this structure with some time left over. While my initially planned structure satisfied the MVP, I chose to attempt to satisfy my initally set stretch goals:
-
-### Final ERD
-![Final ERD](https://github.com/Finn969/Project-SFIA-1/blob/master/ERDv2.png)
-
-My final structure aimed to show more complex relations: the winner and loser of each battle. This was achieved by inserting additional foreign keys into the battle table, and inserting a new minor table for armies.
+![wireframe](https://github.com/Finn969/Project-SFIA-2/blob/master/Documents/wireframe.png)
 
 ## Testing
 
@@ -64,7 +54,7 @@ Using Pytest, I was able to create testing functions in a testing.py file. This 
 This testing file is called by Jenkins during each build, and coverage is used to generate a report on how many of the tests are successful.
 
 ### Test Report
-
+![report](https://github.com/Finn969/Project-SFIA-2/blob/master/Documents/coverage.png)
 
 ## Deployment
 
