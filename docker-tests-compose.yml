@@ -1,26 +1,15 @@
 version: "3.7"
 
-networks:
-    servicenetwork:
-        driver: overlay
-
 services:
 
     service_1:
         
         image:
             finn969/sfia-2:service_1
-        environment: 
-            - MYSQLHOST=${MYSQLHOST}
-            - MYSQLUSER=${MYSQLUSE}
-            - MYSQLPASSWORD=${MYSQLPASS}
-            - MYSQLDB=${MYSQLDB}
         ports: 
             - "5000:5000"
         networks:
-            - servicenetwork
-        deploy:
-            replicas: 3
+            - testnetwork
 
     service_2:
         
@@ -29,9 +18,7 @@ services:
         ports: 
             - "5001:5001"
         networks:
-            - servicenetwork
-        deploy:
-            replicas: 3
+            - testnetwork
 
     service_3:
         
@@ -41,11 +28,8 @@ services:
             - "5002:5002"
         networks:
             - servicenetwork
-        deploy:
-            replicas: 3
 
     service_4:
-        
         
         image:
             finn969/sfia-2:service_4
@@ -53,23 +37,19 @@ services:
             - "5003:5003"
         networks:
             - servicenetwork
-        deploy:
-            replicas: 3
 
     service_nginx:
         image: nginx:latest
-        ports:
+        ports: :
             - "80:80"
         networks:
-            - servicenetwork
+            -testnetwork
         depends_on: 
-            - service_1
-            - service_2
-            - service_3
-            - service_4
-        deploy:
-            replicas: 1
-            
+            -service_1
+            -service_2
+            -service_3
+            -service_4
 
-
-
+networks:
+    testnetwork:
+        driver: overlay
