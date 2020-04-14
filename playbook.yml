@@ -1,12 +1,13 @@
 ---
 - name: Install Docker
-  hosts: local
+  hosts: localhost
+  connection: local
   become: true
   roles:
     - docker-installation
-
+# This process was intended to be run on a separate manager node
 - name: Initialise Docker Swarm
-  hosts: local
+  hosts: localhost
   become: true
   roles:
     - docker-swarm-init
