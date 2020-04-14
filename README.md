@@ -81,6 +81,9 @@ Given the failure to produce certain goals, I am disappointed in the outcome of 
 
 * I severely underestimated the impact of adjusting to working from home, social isolation coupled with the stress of the project resulted in episodes of severe stress.
 
+### Trello of Improvements
+![Future Board](https://github.com/Finn969/Project-SFIA-2/blob/master/Documents/Trello3.png)
+
 However, it is worth noting that I have made some achivements and improvements from my previous project:
 
 * My original plan was not overly ambitious, nor did I spend too much time developing the webapp itself
