@@ -26,7 +26,11 @@ pipeline {
                     sh 'whoami'
                     sh 'sudo chmod -R a+rw ./tests/'
 
-                    sh './script/tests.sh'
+                    sh 'source ~/.bashrc'
+
+                    sh 'python3 -m pytest ./tests/testing.py'
+                    sh 'python3 -m coverage run -m --source=. pytest ./tests/testing.py'
+                    sh 'python3 -m coverage report -m ./tests/testing.py'
                     sh 'echo "Testing Successful!"'
                 
             }
