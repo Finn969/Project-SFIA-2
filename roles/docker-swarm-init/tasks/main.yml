@@ -32,6 +32,6 @@
 
 
 - name: Get manager hostname
-    add_host:
-      name: "manager_hostname"
-      value: "{{manager_hostname.stdout}}"
+  add_host:
+    name: "manager_hostname"
+    value: "{{manager_hostname.stdout}}"
