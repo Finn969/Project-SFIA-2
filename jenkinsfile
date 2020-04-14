@@ -15,8 +15,10 @@ pipeline {
             stage('Deploying Docker Stack'){
                 agent {label 'manager_node'}
                 steps{
+                    sh 'echo "Beginning deployment"'
                     sh 'chmod +x ./script/*'
                     sh './script/docker-deploy.sh'
+                    sh 'echo "Deployment complete!"'
                 }
             }
 
