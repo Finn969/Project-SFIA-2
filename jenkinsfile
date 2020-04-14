@@ -23,8 +23,10 @@ pipeline {
             }
             stage('Testing'){
                 steps{
+                    sh 'whoami'
                     sh 'sudo chmod -R a+rw ./tests/'
-                    sh 'sudo ./script/tests.sh'
+
+                    sh './script/tests.sh'
                     sh 'echo "Testing Successful!"'
                 
             }
