@@ -1,12 +1,12 @@
 ---
 - name: Install Docker
-  hosts: servers
+  hosts: local
   become: true
   roles:
     - docker-installation
 
 - name: Initialise Docker Swarm
-  hosts: swarm-manager
+  hosts: local
   become: true
   roles:
     - docker-swarm-init
