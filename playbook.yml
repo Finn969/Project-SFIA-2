@@ -11,9 +11,10 @@
   roles:
     - docker-swarm-init
 
-- name: add workers
-  hosts: swarm-workers
-  become: true
-  roles:
-    - docker-swarm-add-workers
+# Unable to implement worker nodes
+#- name: add workers
+#  hosts: swarm-workers
+#  become: true
+#  roles:
+#    - docker-swarm-add-workers
   
